@@ -1,5 +1,6 @@
 from data import loader
 from data import ranking
+from data import tfidf
 
 def run():
     movies_dataset = loader.load_dataset('./resources/movies_metadata.csv')
@@ -14,6 +15,7 @@ def run():
     eligible_movies['score'] = weighted_rating
     eligible_movies = eligible_movies.sort_values('score', ascending=False)
 
-    print(eligible_movies['title'].head(15))
+    tfidf_matrix = tfidf.build_matrix(eligible_movies, 'overview')
+    print(tfidf_matrix.shape)
 
 
