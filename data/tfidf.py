@@ -35,3 +35,4 @@ def get_similar_movies(dataset, movie_name, number_related_movies):
 
     movie_indices = [i[0] for i in similar_score]
     return dataset['title'].iloc[movie_indices]
+    
